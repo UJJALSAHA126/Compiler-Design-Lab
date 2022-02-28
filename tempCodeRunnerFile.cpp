@@ -1,0 +1,1 @@
+while ((ch=getc(f1)) != EOF)
