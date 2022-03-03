@@ -29,9 +29,9 @@ bool isDelimiter(char ch)
 {
     char op[] = {' ', '+', '-', '*', '/', ',', ';', '>', '<', '=', '(', ')', '[', ']', '{', '}'};
     int len = sizeof(op) / sizeof(char);
-    for (int i = 0; i < len; i++)
+    for (char c : op)
     {
-        if (ch == op[i])
+        if (ch == c)
             return true;
     }
     return false;
@@ -209,11 +209,13 @@ void parse(char *str)
 
 int main()
 {
-    system("cls");
-    changeColor(37);
-    char *str = (char *)malloc(100);
-    cout << "Enter : ";
-    scanf("%[^\n]", str);
+    // system("cls");
+    // changeColor(37);
+    // char *str = (char *)malloc(100);
+    // cout << "Enter : ";
+    // scanf("%[^\n]", str);
+    // strcpy(str, "float d=b+1c;");/
+    char str[100] = "float d = b + 1c;";
     cout << "The String Is : " << str << endl;
     changeColor(33);
     cout << "----------------------******************--------------------" << endl;
