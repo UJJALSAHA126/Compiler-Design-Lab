@@ -1,12 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-char s[20], stackk[20];
+char s[20], st[20];
 
 int main()
 {
     system("cls");
-    string m[5][6] = {"tb", " ", " ", "tb", " ", " ", " ", "+tb", " ", " ", "n", "n", "fc", " ", " ", "fc", " ", " ", " ", "n", "*fc", " a ", "n", "n", "i", " ", " ", "(e)", " ", " "};
+    string m[5][6] = {"tb", " ", " ", "tb", " ", " ", " ", "+tb", " ", " ", "n", "n", "fc", " ", " ", "fc", 
+    " ", " ", " ", "n", "*fc", " a ", "n", "n", "i", " ", " ", "(e)", " ", " "};
 
     int size[5][6] = {2, 0, 0, 2, 0, 0, 0, 3, 0, 0, 1, 1, 2, 0,
                       0, 2, 0, 0, 0, 1, 3, 0, 1, 1, 1, 0, 0, 3, 0, 0};
@@ -14,13 +15,12 @@ int main()
     int i, j, k, n, str1, str2;
 
     cout<< "Enter the input string: ";
-    // scanf("%s", s);
     cin >> s;
     strcat(s, "$");
     n = strlen(s);
 
-    stackk[0] = '$';
-    stackk[1] = 'e';
+    st[0] = '$';
+    st[1] = 'e';
 
     i = 1;
     j = 0;
@@ -29,14 +29,14 @@ int main()
          << "Stack     Input" << endl;
     cout << "__________________" << endl;
 
-    while ((stackk[i] != '$') && (s[j] != '$'))
+    while ((st[i] != '$') && (s[j] != '$'))
     {
-        if (stackk[i] == s[j])
+        if (st[i] == s[j])
         {
             i--;
             j++;
         }
-        switch (stackk[i])
+        switch (st[i])
         {
         case 'e':
             str1 = 0;
@@ -86,19 +86,19 @@ int main()
         else if (m[str1][str2][0] == 'n')
             i--;
         else if (m[str1][str2][0] == 'i')
-            stackk[i] = 'i';
+            st[i] = 'i';
         else
         {
             for (k = size[str1][str2] - 1; k >= 0; k--)
             {
-                stackk[i] = m[str1][str2][k];
+                st[i] = m[str1][str2][k];
                 i++;
             }
             i--;
         }
 
         for (k = 0; k <= i; k++)
-            cout << stackk[k];
+            cout << st[k];
         cout << "       ";
 
         for (k = j; k <= n; k++)
